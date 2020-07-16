@@ -1,0 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: rgb(140, 163, 212);
+    color: white;
+}
+
+header {    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+}
+
+header h1 {
+    font-size: 3em;
+  
+}
+
+main {
+    display: flex;
+    align-items: center;
+    height: 150px;
+    justify-content: space-around;
+    align-content: space-between;    
+ 
+}
+
+#buscarBtn {
+    padding: 15px;
+    background-color: rgb(194, 185, 247);
+    border: none;
+    border-radius: 15px;
+    color: rgb(0, 68, 68);
+}
+
+#cityInput {
+    padding: 10px;
+}
