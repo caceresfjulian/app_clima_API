@@ -1,3 +1,5 @@
+import {getDaily} from './diario.js';
+
 const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
 
 const apikey = '&appid=8de836df4e3363996ed5231aa642ea98';
@@ -17,6 +19,7 @@ export const getData = async () => {
           document.getElementById('imgOutput').src = "";
         }*/
         cityOutput.innerHTML = jsonResponse.name;
+        getDaily(jsonResponse, apikey);
         return jsonResponse;
       } throw new Error('Request failed!')
     } catch (error) {
