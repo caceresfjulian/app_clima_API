@@ -6,9 +6,11 @@ const apikey = '&appid=8de836df4e3363996ed5231aa642ea98';
 
 const units = '&units=metric';
 
+const lang = '&lang=es'
+
 export const getData = async () => {
     try {
-      const response = await fetch(url + cityInput.value + units + apikey);
+      const response = await fetch(url + cityInput.value + units + apikey + lang);
       if (response.ok) {
         const jsonResponse = await response.json();
         console.log(jsonResponse);
@@ -19,7 +21,7 @@ export const getData = async () => {
           document.getElementById('imgOutput').src = "";
         }*/
         cityOutput.innerHTML = jsonResponse.name;
-        getDaily(jsonResponse, apikey);
+        getDaily(jsonResponse, apikey, lang, units);
         return jsonResponse;
       } throw new Error('Request failed!')
     } catch (error) {

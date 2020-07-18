@@ -1,8 +1,8 @@
 const urlDaily = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 
-export const getDaily = async (jsonResponse, apikey) => {
+export const getDaily = async (jsonResponse, apikey, lang, units) => {
     try {
-        const response2 = await fetch( urlDaily + jsonResponse.coord.lat + "&lon=" + jsonResponse.coord.lon + apikey);
+        const response2 = await fetch( urlDaily + jsonResponse.coord.lat + "&lon=" + jsonResponse.coord.lon + apikey + lang + units);
         if (response2.ok){
             const jsonResponse2 = await response2.json();
             console.log(jsonResponse2);
