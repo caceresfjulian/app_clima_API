@@ -1,4 +1,5 @@
-import {getDaily} from './diario.js';
+import { getDaily } from './diario.js';
+import { dateTime } from './time_date.js';
 
 const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
 
@@ -9,23 +10,24 @@ const units = '&units=metric';
 const lang = '&lang=es'
 
 export const getData = async () => {
-    try {
-      const response = await fetch(url + cityInput.value + units + apikey + lang);
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        console.log(jsonResponse);
-        climaOutput.innerHTML = jsonResponse.main.temp + '°C';
-     /*   if (jsonResponse.main.temp <= 20) {
-          document.getElementById('imgOutput').src = "";
-        } else {
-          document.getElementById('imgOutput').src = "";
-        }*/
-        cityOutput.innerHTML = jsonResponse.name;
-        getDaily(jsonResponse, apikey, lang, units);
-        return jsonResponse;
-      } throw new Error('Request failed!')
-    } catch (error) {
-      console.log(error);
-    };
+  dateTime();
+  try {
+    const response = await fetch(url + cityInput.value + units + apikey + lang);
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      console.log(jsonResponse);
+      climaOutput.innerHTML = jsonResponse.main.temp + '°C';
+      /*   if (jsonResponse.main.temp <= 20) {
+           document.getElementById('imgOutput').src = "";
+         } else {
+           document.getElementById('imgOutput').src = "";
+         }*/
+      cityOutput.innerHTML = jsonResponse.name;
+      getDaily(jsonResponse, apikey, lang, units);
+      return jsonResponse;
+    } throw new Error('Request failed!')
+  } catch (error) {
+    console.log(error);
   };
+};
 
