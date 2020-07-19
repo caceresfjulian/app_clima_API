@@ -17,16 +17,5 @@ la búsqueda realizada.
 */
 import {getData} from './clima.js';
 
-const cityInput = document.getElementById('cityInput');
-
-const climaOutput = document.getElementById('climaOutput');
-
-const cityOutput = document.getElementById('cityOutput');
-
-function buscarClima() {
-  console.log(cityInput.value);
-};
-
-
 document.getElementById('buscarBtn').addEventListener('click', getData);
 

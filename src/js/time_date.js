@@ -1,6 +1,7 @@
 const today = new Date();
-const date = today.getFullYear() + '-' + (today.getMonth()+1) + '-' + today.getDate();
-const time = today.getHours() + ':' + today.getMinutes() + ":" + today.getSeconds();
-export const dateTime = () => {
-    console.log(date + ' ' + time);
+const date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
+const time = today.getHours() + ':' + today.getMinutes()
+
+export const dateTime = () =>{
+    timeDate.innerHTML = time + ' ' + date ;
 }

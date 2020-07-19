@@ -7,7 +7,9 @@ const apikey = '&appid=8de836df4e3363996ed5231aa642ea98';
 
 const units = '&units=metric';
 
-const lang = '&lang=es'
+const lang = '&lang=es';
+
+const iconoSalida = document.getElementById('iconoSalida');
 
 export const getData = async () => {
   dateTime();
@@ -22,7 +24,9 @@ export const getData = async () => {
          } else {
            document.getElementById('imgOutput').src = "";
          }*/
-      cityOutput.innerHTML = jsonResponse.name;
+      cityOutput.innerHTML = jsonResponse.name + ', ' + jsonResponse.sys.country;
+      description.innerHTML = jsonResponse.weather[0].description;
+      iconoSalida.src = 'http://openweathermap.org/img/wn/'+ jsonResponse.weather[0].icon + '@2x.png';
       getDaily(jsonResponse, apikey, lang, units);
       return jsonResponse;
     } throw new Error('Request failed!')
