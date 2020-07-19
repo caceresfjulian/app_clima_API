@@ -7,6 +7,11 @@
 body {
     background-color: rgb(140, 163, 212);
     color: white;
+    background-image: url("https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-size: auto; 
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
 
 header {
@@ -27,9 +32,7 @@ main {
     height: 150px;
     justify-content: flex-start;
     flex-direction: column;
-    
 }
-
 
 #buscarBtn {
     padding: 15px;
@@ -48,21 +51,29 @@ main {
 }
 
 #mainTitle {
-    background-color: rgb(68, 60, 185);
+    background-color: rgb(56, 85, 92);
     width: 800px;
     padding: 10px 0;
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    
 }
 
 #mainBody {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.13);
     width: 800px;
-    color: black;
     
+    
+}
 
+#mainBody h4 {
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    font-weight: 100;
+    font-style: italic;
+    position: absolute;
+    margin-top: 35px;
+    
 }
 
 #timeDateBox {
@@ -74,6 +85,7 @@ main {
     
 }
 
-#titleBody {
-    padding: 5px 0 5px 10px;
+.resultBox {
+    padding-left: 35px ;
+    display: inline;
 }
