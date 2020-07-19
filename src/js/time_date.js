@@ -1,6 +1,14 @@
+function formatear (a) {
+    return String(a).padStart(2, '0');
+};
+
 const today = new Date();
-const date = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
-const time = today.getHours() + ':' + today.getMinutes()
+let day = formatear(today.getDate());
+let month = formatear(today.getMonth()+1);
+let hour = formatear(today.getHours());
+let min = formatear(today.getMinutes());
+const date = day + '-' + month + '-' + today.getFullYear();
+const time = hour + ':' + min;
 
 export const dateTime = () =>{
     timeDate.innerHTML = time + ' ' + date ;
