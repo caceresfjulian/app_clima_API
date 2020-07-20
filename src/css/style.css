@@ -37,9 +37,6 @@ main {
     padding: 10px;
 }
 
-#container {
-    color: white;    
-}
 
 #container2 {
     background-image: url("https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
@@ -50,6 +47,7 @@ main {
     position: absolute;
     top: 0;
     left: 50vh;
+    color: white;
 }
 
 
