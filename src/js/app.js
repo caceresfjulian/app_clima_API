@@ -15,7 +15,7 @@ la búsqueda realizada.
 *Nota: Utilizar sólo JavaScript sin librerías para este proyecto. 
 
 */
-import {getData} from './clima.js';
+import { getData } from './clima.js';
 
 document.getElementById('buscarBtn').addEventListener('click', getData);
 

@@ -1,6 +1,6 @@
 import { getDaily } from './diario.js';
 import { dateTime } from './time_date.js';
-import {setBackgroundImage} from './bg_img.js';
+import { setBackgroundImage } from './bg_img.js';
 
 const url = 'https://api.openweathermap.org/data/2.5/weather?q=';
 
@@ -27,7 +27,7 @@ export const getData = async () => {
          }*/
       cityOutput.innerHTML = jsonResponse.name + ', ' + jsonResponse.sys.country;
       description.innerHTML = jsonResponse.weather[0].description;
-      iconoSalida.src = 'http://openweathermap.org/img/wn/'+ jsonResponse.weather[0].icon + '@2x.png';
+      iconoSalida.src = 'http://openweathermap.org/img/wn/' + jsonResponse.weather[0].icon + '@2x.png';
       setBackgroundImage(jsonResponse.weather[0].id);
       getDaily(jsonResponse, apikey, lang, units);
       return jsonResponse;
