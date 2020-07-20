@@ -4,16 +4,6 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-body {
-    
-    color: white;
-    background-image: url("https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
-    background-size: auto; 
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
-
 header {
     display: flex;
     justify-content: space-around;
@@ -34,6 +24,7 @@ main {
     flex-direction: column;
 }
 
+
 #buscarBtn {
     padding: 15px;
     background-color: rgb(194, 185, 247);
@@ -45,6 +36,22 @@ main {
 #cityInput {
     padding: 10px;
 }
+
+#container {
+    color: white;    
+}
+
+#container2 {
+    background-image: url("https://images.pexels.com/photos/66997/pexels-photo-66997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    transition: opacity 1s;    
+}
+
+#container3 {
+    position: absolute;
+    top: 0;
+    left: 50vh;
+}
+
 
 #iconoSalida, h4 {
     display: inline;
@@ -83,6 +90,13 @@ main {
     float: right;
     padding: 5px 0 5px 10px;
     
+}
+
+.fondo {
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 
 .resultBox {

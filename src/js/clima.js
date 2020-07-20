@@ -13,10 +13,10 @@ const lang = '&lang=es';
 const iconoSalida = document.getElementById('iconoSalida');
 
 export const getData = async () => {
-  dateTime();
   try {
     const response = await fetch(url + cityInput.value + units + apikey + lang);
     if (response.ok) {
+      dateTime();
       const jsonResponse = await response.json();
       console.log(jsonResponse);
       climaOutput.innerHTML = jsonResponse.main.temp + '°C';
