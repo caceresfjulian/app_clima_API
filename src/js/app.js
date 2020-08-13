@@ -16,6 +16,8 @@ la búsqueda realizada.
 
 */
 import { getData } from './clima.js';
+import {dateTime} from './time_date.js';
 
+dateTime();
 document.getElementById('buscarBtn').addEventListener('click', getData);
 
