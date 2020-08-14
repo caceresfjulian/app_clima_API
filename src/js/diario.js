@@ -2,11 +2,11 @@ const urlDaily = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 
 let forecast = [15, 17, 19, 14, 22, 24, 20, 18]
 
-var svg = d3.select("#forecast").append("svg")
+function forecastGraph(){
+    var svg = d3.select("#forecast").append("svg")
+            .attr("id", "graph")
             .attr("height", "100%")
             .attr("width", "100%");
-
-function forecastGraph(){
     svg.selectAll("rect")
         .data(forecast)
         .enter().append("rect")
@@ -29,6 +29,8 @@ export const getDaily = async (jsonResponse, apikey, lang, units) => {
             for (const [key, value] of Object.entries(jsonResponse2.daily)){
                 forecast.push(`${value.temp.day}`)
             };
+            let graph = document.getElementById("graph");
+            graph.remove();
             forecastGraph();
             console.log(forecast);
             return jsonResponse2;
