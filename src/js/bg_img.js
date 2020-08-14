@@ -1,5 +1,5 @@
-let bgBody = document.getElementById('container').style;
-let bgBody2 = document.getElementById('container2').style;
+let bgBody = document.getElementById('backgroundImage1').style;
+let bgBody2 = document.getElementById('backgroundImage2').style;
 
 function nextImage() {
     bgBody2.backgroundImage = bgBody.backgroundImage;

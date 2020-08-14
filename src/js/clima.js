@@ -8,7 +8,8 @@ const units = '&units=metric';
 const lang = '&lang=es';
 const iconoSalida = document.getElementById('iconoSalida');
 
-export const getData = async () => {
+export const getData = async (e) => {
+  e.preventDefault();
   try {
     const response = await fetch(url + cityInput.value + units + apikey + lang);
     if (response.ok) {
