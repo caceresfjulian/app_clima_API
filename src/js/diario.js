@@ -10,10 +10,19 @@ function forecastGraph(){
     svg.selectAll("rect")
         .data(forecast)
         .enter().append("rect")
+            .text(function(d){return d})
+            .attr("class", "bar")
             .attr("height", function(d){ return ((d - 10) * 8) })
             .attr("width", "20")
             .attr("x", function(d, i){return (i * 30) + 25})
-            .attr("y", function (d, i){return 220 - (d * 8)});  
+            .attr("y", function (d, i){return 220 - (d * 8)})
+    svg.selectAll("text")
+        .data(forecast)
+        .enter()
+        .append("text")
+        .text(function(d){return `${d}°`})
+            .attr("x", function(d, i){return (i * 30) + 25})
+            .attr("y", function (d, i){return 215 - (d * 8)})
 }
 
 forecastGraph();

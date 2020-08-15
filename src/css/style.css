@@ -8,3 +8,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.bar {
+    fill: #222222;
+}
+
+.bar:hover {
+    fill: #474747;
+}
