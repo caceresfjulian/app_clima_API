@@ -20,7 +20,7 @@ function forecastGraph(){
         .data(forecast)
         .enter()
         .append("text")
-        .text(function(d){return `${d}°`})
+        .text(function(d){return `${Math.floor(d)}°`})
             .attr("x", function(d, i){return (i * 30) + 25})
             .attr("y", function (d, i){return 215 - (d * 8)})
 }
