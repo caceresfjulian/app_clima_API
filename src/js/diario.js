@@ -13,11 +13,11 @@ function forecastGraph(){
             .text(function(d){return d})
             .attr("class", "bar")
             .attr("height", 
-                function(d){ return (d - (Math.max(...forecast)/3)) * 4
-            })
+                function(d){ return 140 - (Math.max(...forecast) - d ) * 8
+           })
             .attr("width", "20")
             .attr("x", function(d, i){return (i * 30) + 25})
-            .attr("y", function (d, i){return 140 - ((d - (Math.max(...forecast)/3)) * 4) })
+            .attr("y", function (d, i){return ((Math.max(...forecast) - d ) * 8) })
     svg.selectAll("text")
         .data(forecast)
         .enter()
