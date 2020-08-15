@@ -12,17 +12,19 @@ function forecastGraph(){
         .enter().append("rect")
             .text(function(d){return d})
             .attr("class", "bar")
-            .attr("height", function(d){ return ((d - 10) * 8) })
+            .attr("height", 
+                function(d){ return (d - (Math.max(...forecast)/3)) * 4
+            })
             .attr("width", "20")
             .attr("x", function(d, i){return (i * 30) + 25})
-            .attr("y", function (d, i){return 220 - (d * 8)})
+            .attr("y", function (d, i){return 140 - ((d - (Math.max(...forecast)/3)) * 4) })
     svg.selectAll("text")
         .data(forecast)
         .enter()
         .append("text")
         .text(function(d){return `${Math.floor(d)}°`})
-            .attr("x", function(d, i){return (i * 30) + 25})
-            .attr("y", function (d, i){return 215 - (d * 8)})
+            .attr("x", function(d, i){return (i * 30) + 25})        
+            .attr("y", function (d, i){return 135 - ((d - (Math.max(...forecast)/3)) * 4)})
 }
 
 forecastGraph();
