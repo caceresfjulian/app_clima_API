@@ -13,18 +13,18 @@ function forecastGraph(){
             .text(function(d){return d})
             .attr("class", "bar")
             .attr("height", 
-                function(d){ return 140 - (Math.max(...forecast) - d ) * 8
+                function(d){ return 140 - (Math.max(...forecast) - d + 3 ) * 8
            })
             .attr("width", "20")
             .attr("x", function(d, i){return (i * 30) + 25})
-            .attr("y", function (d, i){return ((Math.max(...forecast) - d ) * 8) })
-    svg.selectAll("text")
+            .attr("y", function (d, i){return ((Math.max(...forecast) - d + 1) * 8) })
+    svg.selectAll("text")   
         .data(forecast)
         .enter()
         .append("text")
         .text(function(d){return `${Math.floor(d)}°`})
             .attr("x", function(d, i){return (i * 30) + 25})        
-            .attr("y", function (d, i){return 135 - ((d - (Math.max(...forecast)/3)) * 4)})
+            .attr("y", function (d, i){return  145})
 }
 
 forecastGraph();
