@@ -1,7 +1,7 @@
 # App Clima
 App Clima es una aplicación web para obtener información sobre el clima actual de las ciudades.
 
-Este proyecto fue desarrollado con: 
+## Lenguajes 
     -HTML5
     -CSS3: BootStrap
     -JavaScript - ES6: D3 (librería para visualización de datos).
