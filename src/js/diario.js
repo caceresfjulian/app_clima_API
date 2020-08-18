@@ -6,9 +6,8 @@ let forecast = [];
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 450 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-
-var parse = d3.timeParse("%s");
+    height = 300 - margin.top - margin.bottom,
+    parse = d3.timeParse("%s");
 
 function createLineChart(data){ 
     var svg = d3.select("#forecast")
@@ -29,7 +28,7 @@ function createLineChart(data){
         
       // Add Y axis
         var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) {return +d.temp; })])
+        .domain([0, d3.max(data, function(d) {return d.temp })])
         .range([ height, 0 ]);
     svg.append("g")
         .call(d3.axisLeft(y));
