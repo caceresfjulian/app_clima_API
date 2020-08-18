@@ -2,31 +2,34 @@ import {dateTime} from './time_date.js';
 
 const urlDaily = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 
-let forecast = [5, 4, 12, 8, 11, 7, 9, 6];
+let forecast = [];
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 300 - margin.left - margin.right,
-    height = 150 - margin.top - margin.bottom;
+    width = 450 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
-var svg = d3.select("#forecast")
+var parse = d3.timeParse("%s");
+
+function createLineChart(data){ 
+    var svg = d3.select("#forecast")
     .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
+        .attr("id", "currentGraph")
     .append("g")
         .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")")
 
-function createLineChart(data){
     var x = d3.scaleTime()
         .domain(d3.extent(data, function(d) { return d.time; }))
-        .range([ 0, width ]);
+        .range([ 0, width ]);   
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
         
       // Add Y axis
         var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d) { return +d.temp; })])
+        .domain([0, d3.max(data, function(d) {return +d.temp; })])
         .range([ height, 0 ]);
     svg.append("g")
         .call(d3.axisLeft(y));
@@ -42,6 +45,8 @@ function createLineChart(data){
     )
 }
 
+createLineChart(forecast);
+
 export const getDaily = async (jsonResponse, apikey, lang, units) => {
     try {
         const response2 = await fetch(urlDaily + jsonResponse.coord.lat + "&lon=" + jsonResponse.coord.lon + apikey + lang + units);
@@ -51,8 +56,11 @@ export const getDaily = async (jsonResponse, apikey, lang, units) => {
             const jsonResponse2 = await response2.json();
             console.log(jsonResponse2);
             for (const [key, value] of Object.entries(jsonResponse2.hourly)){
-                forecast.push({time: value.dt ,temp: value.temp})
+                forecast.push({time: parse(value.dt) ,temp: value.temp})
             };
+            forecast.splice(23);
+            let lineChart = document.getElementById('currentGraph');
+            lineChart.remove();
             createLineChart(forecast);
             console.log(forecast);
             return jsonResponse2;
