@@ -1,5 +1,5 @@
 # App Clima
-App Clima es una aplicación web optimizada para dispositivos móviles para obtener información sobre el clima actual de las ciudades.
+App Clima es una aplicación web responsive para obtener información sobre el clima actual de las ciudades.
 
 ## Lenguajes 
     -HTML5
