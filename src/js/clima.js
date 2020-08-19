@@ -15,7 +15,6 @@ export const getData = async (e) => {
     if (response.ok) {
       dateTime();
       const jsonResponse = await response.json();
-      console.log(jsonResponse);
       climaOutput.innerHTML = jsonResponse.main.temp + '°C';
       cityOutput.innerHTML = jsonResponse.name + ', ' + jsonResponse.sys.country;
       description.innerHTML = jsonResponse.weather[0].description;

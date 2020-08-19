@@ -3,6 +3,7 @@ import {dateTime} from './time_date.js';
 const urlDaily = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 
 let forecast = [];
+const forecastXS = document.getElementById('forecastXS');
 
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 450 - margin.left - margin.right,
@@ -50,10 +51,10 @@ export const getDaily = async (jsonResponse, apikey, lang, units) => {
     try {
         const response2 = await fetch(urlDaily + jsonResponse.coord.lat + "&lon=" + jsonResponse.coord.lon + apikey + lang + units);
         if (response2.ok) {
+            forecastXS.innerHTML = " ";
             forecast = [];
             document.getElementById('forecast').remove
             const jsonResponse2 = await response2.json();
-            console.log(jsonResponse2);
             for (const [key, value] of Object.entries(jsonResponse2.hourly)){
                 forecast.push({time: parse(value.dt) ,temp: value.temp})
             };
@@ -61,7 +62,9 @@ export const getDaily = async (jsonResponse, apikey, lang, units) => {
             let lineChart = document.getElementById('currentGraph');
             lineChart.remove();
             createLineChart(forecast);
-            console.log(forecast);
+            for (let i = 2; i < 6; i++){
+                forecastXS.innerHTML += "En " + [i] + " horas: " + forecast[i].temp + "°C" +  "<br>";
+            }
             return jsonResponse2;
         } throw new Error('Request failed')
     } catch (error) {

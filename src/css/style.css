@@ -16,3 +16,9 @@
 .bar:hover {
     fill: #474747;
 }
+
+#forecastXS {
+    width: 248px;
+    height: 100px;
+    overflow: scroll;
+}
